@@ -1,6 +1,5 @@
-# from ultralytics import YOLO
+from ultralytics import YOLO
 
-# import requests
 # import zipfile
 # import os
 
@@ -16,17 +15,7 @@
 # download_file(url, output_path)
 
 
-# # Load a pretrained YOLO model
-# model = YOLO("yolov8n.pt")
-
-# Download COCO val
-# import torch
-# torch.hub.download_url_to_file('https://ultralytics.com/assets/coco2017val.zip', 'tmp.zip')  # download (780M - 5000 images)
-# !unzip -q tmp.zip -d datasets && rm tmp.zip  # unzip
-
-from ultralytics import YOLO
-
-# Load a model
+# Load pretrained model
 model = YOLO("yolov8n.pt")
 
 # Train the model
@@ -44,11 +33,12 @@ metrics = model.val()
 results = model("/Users/kalea/Desktop/skyeyez-ai/Serena_Williams_at_2013_US_Open.jpg")
 results[0].show()
 
-# # Export the model to ONNX format
-# path = model.export(format="onnx")  # return path to exported model
+# Export the model to ONNX format
+path = model.export(format="onnx")  # return path to exported model
 
-# # Use the model
-# results = model.train(data='coco8.yaml', epochs=3)  # train the model
+
+# # Use the model on coco8 dataset
+# results = model.train(data='coco8.yaml', epochs=5, device="cpu")  # train the model
 # results = model.val()  # evaluate model performance on the validation set
-# results = model('https://ultralytics.com/images/bus.jpg')  # predict on an image
+# results = model('/Users/kalea/Desktop/skyeyez-ai/Dalmatian1.jpg')  # predict on an image
 # results = model.export(format='onnx')  # export the model to ONNX format

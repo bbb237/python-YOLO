@@ -20,9 +20,9 @@
 # model = YOLO("yolov8n.pt")
 
 # Download COCO val
-import torch
-torch.hub.download_url_to_file('https://ultralytics.com/assets/coco2017val.zip', 'tmp.zip')  # download (780M - 5000 images)
-!unzip -q tmp.zip -d datasets && rm tmp.zip  # unzip
+# import torch
+# torch.hub.download_url_to_file('https://ultralytics.com/assets/coco2017val.zip', 'tmp.zip')  # download (780M - 5000 images)
+# !unzip -q tmp.zip -d datasets && rm tmp.zip  # unzip
 
 from ultralytics import YOLO
 
